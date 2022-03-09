@@ -2,6 +2,7 @@ require('dotenv').config()
 console.log(process.env.MONGO_URI)
 const express = require('express'); // lets you run express
 const mongoose = require('mongoose') // lest you run mongoose
+const methodOverride = require('method-override');
 const app = express(); // calls express to work 
 const Sneaker = require('./models/sneakers'); // imports sneakers from wherever it is 
 
@@ -24,11 +25,12 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 // MIDDLEWARE
-app.use(express.urlencoded({ extended: true })) // allows code below to work (req.body)
+app.use(express.urlencoded({ extended: true })) // User sends request, Middleware runs between controller and callback functions
 app.use((req, res, next) => {
     console.log(req.body)
     next()
 })
+app.use(methodOverride('_method'))
 
 ///////////////////////////////////
 // INDEX
@@ -38,7 +40,7 @@ app.get('/sneakers', (req, res) => {
         if (err) {
             res.status(400).send(err)
         } else {
-            res.render('sneakers/Index', {
+            res.render('Index', {
                 sneakers: foundSneakers
             })
         }
@@ -51,7 +53,7 @@ app.get('/sneakers', (req, res) => {
 // NEW
 ///////////////////////////////////
 app.get('/sneakers/new', (req, res) => {
-    res.render('sneakers/New')
+    res.render('New')
 })
 
 
@@ -67,6 +69,18 @@ app.get('/sneakers/new', (req, res) => {
 ///////////////////////////////////
 //CREATE
 ///////////////////////////////////
+app.post('/fruits', (req, res) => {
+//    Fruit.create(req.body, (err, createdFruit) => {
+//         if (err) {
+//             res.status(403).send(err)
+//         } else {
+//             console.log(createdFruit)
+//             res.redirect('/fruits')
+//         }
+//     })
+console.log(req)
+})
+
 
 ///////////////////////////////////
 //EDIT
@@ -80,6 +94,6 @@ app.get('/sneakers/new', (req, res) => {
 
 
 
-app.listen(5000, () => {
+app.listen(3000, () => {
     console.log('listening')
 })

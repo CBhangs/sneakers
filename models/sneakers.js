@@ -6,6 +6,6 @@ const sneakerSchema = new mongoose.Schema({
     description: String,
     price: Number
 })
-const sneaker = mongoose.model('Sneaker', sneakerSchema)
+const Sneaker = mongoose.model('Sneaker', sneakerSchema)
 
 module.exports = Sneaker;

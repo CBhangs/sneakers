@@ -1,10 +1,11 @@
 const React = require('react')
+const Default = require('./layout/Default.jsx');
 
 class Index extends React.Component {
     render(){
         const sneakers = this.props.sneakers   
         return (
-            <Default title="Index Page" subhead="hello">
+            <Default title="Index Page">
                  <div className ="myDiv">
                         <nav>
                             <a href="/sneakers/new">Go to the new page</a>
