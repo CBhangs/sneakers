@@ -64,21 +64,28 @@ app.get('/sneakers/new', (req, res) => {
 ///////////////////////////////////
 //Update
 ///////////////////////////////////
+app.put('/sneakers/:id', (req, res) => {
+    Sneaker.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedSneaker) => {
+        if(err){
+            res.status(400).send(err)
+        } else {
+            res.redirect(`/sneakers/${req.params.id}`)
+        }
+    })
+})
 
 
 ///////////////////////////////////
 //CREATE
 ///////////////////////////////////
 app.post('/sneakers', (req, res) => {
-   Fruit.create(req, (err, createdSneaker) => {
+   Sneaker.create(req.body, (err, createdSneaker) => {
         if (err) {
-            res.status(403).send(err)
+            res.status(400).send(err)
         } else {
-            console.log(createdSneaker)
             res.redirect('/sneakers')
         }
     })
-console.log(req)
 })
 
 

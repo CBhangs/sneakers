@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const sneakerSchema = new mongoose.Schema({
-    picture: String,
+    image: String,
     name: String,
     description: String,
     price: Number

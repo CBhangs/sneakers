@@ -13,9 +13,10 @@ class Index extends React.Component {
                         <ul>
                         {
                             sneakers.map((sneaker) => {
+                                console.log({sneaker})
                                 return (
                                     <li key={`${sneaker._id}`}>
-                                        <img src={sneaker.img}></img>
+                                        <img src={sneaker.image}></img>
                                         <a href={`/sneakers/${sneaker._id}`}>{sneaker.name}</a>
                                         <form action={`/sneakers/${sneaker._id}?_method=DELETE`} method="POST">
                                             <input type="submit" value={`DELETE ${sneaker.name.toUpperCase()}`} />

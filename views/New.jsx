@@ -9,10 +9,10 @@ class New extends React.Component {
             <a href='/sneakers'>Back To Sneakers Index Page</a>
             </nav>
             <form action='/sneakers' method='POST'>
-                Picture: <input name='image' type='img'/><br/>
+                Image: <input name='image' type='img'/><br/>
                Name Here: <input name='name' type='text'/><br/>
                Description: <input name='description' type='text'/><br/>
-               Price:  <input name='price' type='number'/><br/>
+               Price: <input name='price' type='number'/><br/>
                 <input type='submit' value='Create a Sneaker'/>
             </form>
         </div>
