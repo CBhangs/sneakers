@@ -69,15 +69,15 @@ app.get('/sneakers/new', (req, res) => {
 ///////////////////////////////////
 //CREATE
 ///////////////////////////////////
-app.post('/fruits', (req, res) => {
-//    Fruit.create(req.body, (err, createdFruit) => {
-//         if (err) {
-//             res.status(403).send(err)
-//         } else {
-//             console.log(createdFruit)
-//             res.redirect('/fruits')
-//         }
-//     })
+app.post('/sneakers', (req, res) => {
+   Fruit.create(req, (err, createdSneaker) => {
+        if (err) {
+            res.status(403).send(err)
+        } else {
+            console.log(createdSneaker)
+            res.redirect('/sneakers')
+        }
+    })
 console.log(req)
 })
 
