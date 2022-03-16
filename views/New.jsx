@@ -6,7 +6,7 @@ class New extends React.Component {
         <div>
             <h1>This is the New Page</h1>
             <nav>
-            <a href='/sneakers'>Back To Sneakers Index Page</a>
+            <a href='/sneakers'>Back to Sneakers</a>
             </nav>
             <form action='/sneakers' method='POST'>
                 Image: <input name='image' type='img'/><br/>

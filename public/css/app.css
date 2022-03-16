@@ -1,0 +1,10 @@
+.IndexContainer {
+    display: flex;
+    flex-direction: column;
+}
+.SneakerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: italic;
+}

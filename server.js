@@ -14,6 +14,7 @@ const Sneaker = require('./models/sneakers'); // imports sneakers from wherever 
 
 // VIEWS
 app.set('view engine', 'jsx');
+app.use(express.static('public'));
 app.engine('jsx', require('express-react-views').createEngine());
 
 
@@ -60,6 +61,16 @@ app.get('/sneakers/new', (req, res) => {
 ///////////////////////////////////
 // DELETE
 ///////////////////////////////////
+app.delete('/sneakers/:id', (req, res) => {
+    Sneaker.findByIdAndDelete(req.params.id, (err, deletedSneaker) => {
+        if(!err){
+            res.redirect('/sneakers')
+        } else {
+            res.status(400).send(err)
+        }
+    })
+})
+
 
 ///////////////////////////////////
 //Update
@@ -92,12 +103,33 @@ app.post('/sneakers', (req, res) => {
 ///////////////////////////////////
 //EDIT
 ///////////////////////////////////
+app.get('/sneakers/:id/edit', (req, res) => {
+    Sneaker.findById(req.params.id, (err, foundSneaker) => {
+        if(err){
+            res.status(400).send(err)
+        } else {
+            res.render('Edit', {
+                sneaker: foundSneaker
+            })
+        }
+    })
+})
 
 
 ///////////////////////////////////
 //SHOW
 ///////////////////////////////////
-
+app.get('/sneakers/:id', (req, res) => {
+    Sneaker.findById(req.params.id, (err, foundSneaker) => {
+        if (err) {
+            res.status(400).send(err)
+        } else {
+            res.render('Show', {
+                sneaker: foundSneaker
+            })
+        }
+    })
+})
 
 
 
