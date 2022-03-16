@@ -73,7 +73,7 @@ app.delete('/sneakers/:id', (req, res) => {
 
 
 ///////////////////////////////////
-//Update
+//UPDATE
 ///////////////////////////////////
 app.put('/sneakers/:id', (req, res) => {
     Sneaker.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedSneaker) => {

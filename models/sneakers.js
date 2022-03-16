@@ -4,7 +4,7 @@ const sneakerSchema = new mongoose.Schema({
     image: String,
     name: String,
     description: String,
-    price: Number
+    rating: Number
 })
 const Sneaker = mongoose.model('Sneaker', sneakerSchema)
 

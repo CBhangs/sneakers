@@ -9,7 +9,7 @@ class Edit extends React.Component{
                 Image: <input type="text" name="image" defaultValue={this.props.sneaker.image}/><br/>
                 Name: <input type="text" name="name" defaultValue={this.props.sneaker.name}/><br/>
                 Description: <input type="text" name="description" defaultValue={this.props.sneaker.description}/><br/>
-                Price: <input type="number" name="price" defaultValue={this.props.sneaker.price}/><br/>
+                Rating: <input type="number" name="rating" defaultValue={this.props.sneaker.rating}/><br/>
                 <br/>
                 <input type="submit" value="Submit Changes"/>
             </form>

@@ -12,7 +12,7 @@ class Show extends React.Component {
             <img src={sneaker.image}></img>
             <p>{sneaker.name}</p>
             <p>{sneaker.description}</p>
-            <p>{sneaker.price}</p>
+            <p>{sneaker.rating}</p>
         </div>
     );  
 }
